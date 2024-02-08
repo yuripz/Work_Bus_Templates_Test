@@ -1,0 +1,8 @@
+debug=on
+ExeMetod=web-rest
+ExeProfile=queue
+host=sus:80
+oldhost=sus:8151
+user=dbilling
+pswd=Sda73XzpVd
+url=/LoadCRM.phtml

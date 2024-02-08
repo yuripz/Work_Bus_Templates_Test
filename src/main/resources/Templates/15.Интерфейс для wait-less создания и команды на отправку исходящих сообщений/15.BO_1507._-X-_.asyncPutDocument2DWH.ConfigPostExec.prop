@@ -1,0 +1,5 @@
+ExeMetod=none
+shortRetryCount=2
+shortRetryInterval=3
+longRetryCount=4
+longRetryInterval=30

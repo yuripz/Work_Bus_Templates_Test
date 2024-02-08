@@ -1,0 +1,10 @@
+url=/DirectoryService/DirectoryService
+host=http://R12.OEBS:80
+SOAPAction=""
+timeout_read=10
+timeout_conn=2
+shortRetryCount=0
+shortRetryInterval=5
+longRetryCount=0
+longRetryInterval=0
+debug=on

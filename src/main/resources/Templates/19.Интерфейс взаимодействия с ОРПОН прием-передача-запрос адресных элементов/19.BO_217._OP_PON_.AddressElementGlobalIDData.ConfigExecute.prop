@@ -1,0 +1,4 @@
+Test-host=http://ORPONTEST:80
+host=http://ORPON:80
+url=/PONWebServices/WsGetAddrElemByGlobalIDAsyncPortType
+debug=on

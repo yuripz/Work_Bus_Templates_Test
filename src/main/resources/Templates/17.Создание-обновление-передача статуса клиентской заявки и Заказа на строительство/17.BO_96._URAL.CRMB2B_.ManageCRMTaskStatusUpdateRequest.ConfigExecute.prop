@@ -1,0 +1,5 @@
+url=/camel/proxy/hermes/notify
+host=http://URAL.CRMB2B:80
+timeout_read=300
+timeout_conn=5
+debug=off

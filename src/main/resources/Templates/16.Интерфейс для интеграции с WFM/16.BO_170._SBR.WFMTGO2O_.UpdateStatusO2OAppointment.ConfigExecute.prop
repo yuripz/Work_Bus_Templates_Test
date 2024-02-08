@@ -1,0 +1,6 @@
+SOAPAction=http://oms.rt.ru/O2OWFMWebService/updateAppointment
+REMurl=/DatumNode/DatumNode.svc/a
+REMhost=http://ssidr004sla02.si.rt.ru
+timeout_read=400
+timeout_conn=15
+debug=full

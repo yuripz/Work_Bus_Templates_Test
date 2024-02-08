@@ -1,0 +1,4 @@
+insert into artx_proj.Message_Templates (
+Template_Id, Interface_Id, Operation_Id, Msg_Type, Msg_Type_Own, Template_Name, Template_Dir, Source_Id, Destin_Id, Src_Subcod, Dst_Subcod, Lastmaker, Lastdate)
+ select max(Template_Id)+1, 19, 225, 'WsGetPropertyByAddressGlobalIDB2B', 'WsGetPropertyByAddressGlobalIDB2B', 'Метод запроса из ОРПОН данных В2В по объектам недвижимости HE-12451 для системы OP_PON_100', 'OUT', 5, 9, NULL, '0', 'Podkolzin_JuA',  sysdate
+ from artx_proj.Message_Templates;

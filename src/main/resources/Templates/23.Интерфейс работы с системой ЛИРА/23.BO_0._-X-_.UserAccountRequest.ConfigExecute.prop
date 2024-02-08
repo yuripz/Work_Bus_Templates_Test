@@ -1,0 +1,4 @@
+encoding_out=windows-1251
+encoding_in=windows-1251
+custom_Fault_Begin=<DATA><FIELDS><ER>500</ER>
+custom_Fault_End=</FIELDS></DATA>

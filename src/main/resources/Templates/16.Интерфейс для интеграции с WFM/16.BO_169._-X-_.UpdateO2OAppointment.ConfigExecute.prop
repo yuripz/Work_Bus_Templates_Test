@@ -1,0 +1,10 @@
+REMurl=/DatumNode/DatumNode.svc/a
+REMhost=http://SIBIR.TGRAD.BASIS:80
+timeout_read=120
+timeout_conn=15
+debug=on
+SOAPAction=""
+shortRetryCount=1
+shortRetryInterval=3
+longRetryCount=2
+longRetryInterval=5

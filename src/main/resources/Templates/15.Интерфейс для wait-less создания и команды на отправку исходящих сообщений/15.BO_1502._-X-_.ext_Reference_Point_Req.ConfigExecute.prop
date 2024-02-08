@@ -1,0 +1,13 @@
+encoding_out=UTF-8
+encoding_in=UTF-8
+WebMetod=get
+old_host=hermes:8080
+host=https://10.242.9.69:443
+user=dbilling
+pswd=Sda73XzpVd
+url=/integrationApi/ext_reference_point
+realhost=https://hermes-test.rt.ru:443
+ngnxhost=http://HermesHTTPS:80
+timeout_read=60
+timeout_conn=5
+debug=on

@@ -1,0 +1,5 @@
+url=/RT.FFAPI.FSOMWebService/OMSOrderNotificationWebService
+host=http://FSOMPROD:80
+timeout_read=33
+timeout_conn=4
+debug=full

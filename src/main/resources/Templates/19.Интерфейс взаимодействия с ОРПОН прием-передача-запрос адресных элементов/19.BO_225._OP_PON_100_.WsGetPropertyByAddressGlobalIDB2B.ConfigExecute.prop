@@ -1,0 +1,4 @@
+host=http://orpon-prod.rt.ru:8081
+Test_host=http://10.42.78.140:18080
+url=/PONWebServices/WsGetPropertyByAddressGlobalIDB2B
+debug=off

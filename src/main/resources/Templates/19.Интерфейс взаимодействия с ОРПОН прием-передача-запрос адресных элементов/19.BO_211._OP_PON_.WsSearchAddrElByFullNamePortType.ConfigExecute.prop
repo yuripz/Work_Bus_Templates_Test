@@ -1,0 +1,4 @@
+shortRetryCount=3
+shortRetryInterval=3
+longRetryCount=5
+longRetryInterval=6

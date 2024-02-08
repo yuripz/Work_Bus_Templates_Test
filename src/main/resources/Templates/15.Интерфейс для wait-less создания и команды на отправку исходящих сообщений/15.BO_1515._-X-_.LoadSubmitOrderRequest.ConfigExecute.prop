@@ -1,0 +1,10 @@
+uuu=/HermesService/PostHttpRequest/OMSWebService
+url=/HermesSOAPService/SOAPServlet/OMSWebService
+old=http://localhost:8008
+host=http://10.2.110.77:7001
+shortRetryCount=0
+longRetryCount=0
+MsgStream=5
+timeout_read=60
+timeout_conn=5
+debug=on

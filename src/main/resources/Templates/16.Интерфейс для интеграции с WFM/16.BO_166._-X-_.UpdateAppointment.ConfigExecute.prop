@@ -1,0 +1,6 @@
+url=/DatumNode/DatumNode.svc/a
+host=http://SIBIR.TGRAD.BASIS:80
+timeout_read=120
+timeout_conn=15
+debug=full
+SOAPAction="http://oms.rt.ru/WFMWebService/updateAppointment"
