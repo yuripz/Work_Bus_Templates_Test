@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+ <xsl:template match="/">
+  <xsl:for-each select="Confirmation">
+<Response>
+	<ResultCode><xsl:value-of select="ResultCode"/></ResultCode>
+	<ResultMessage><xsl:value-of select="Message"/></ResultMessage>
+	<PayLoad>
+		<Usr_ID><xsl:value-of select="PayLoad/AppResponse"/></Usr_ID>
+		<Role_id><xsl:value-of select="PayLoad/Role_id"/></Role_id>
+		<Usr_name><xsl:value-of select="PayLoad/Usr_name"/></Usr_name>
+		<login><xsl:value-of select="PayLoad/login"/></login>
+
+	</PayLoad>
+</Response>
+  </xsl:for-each>
+  <xsl:for-each select="Fault">
+<urn1:Fault xmlns:urn1="urn:ru:rt:hrms:fault">
+   <ResultCode><xsl:value-of select="ResultCode"/></ResultCode> 
+   <ResultMessage><xsl:value-of select="ResultMessage"/></ResultMessage> 
+</urn1:Fault>
+  </xsl:for-each>
+ </xsl:template>
+</xsl:stylesheet>

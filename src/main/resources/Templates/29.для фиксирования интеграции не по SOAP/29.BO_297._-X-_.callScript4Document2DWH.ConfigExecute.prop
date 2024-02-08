@@ -1,0 +1,12 @@
+encoding_out=UTF-8
+encoding_in=UTF-8
+ShellScript=sh -c /home/oracle/HE-3997_Hermes_APD_Integration/runDocument2DWH.sh OpderId=
+dosShellScript=CMD.EXE /c C:\\Work_Bus\\xxx-4-test_run_CMDcript.cmd aaa.xxx bbb.yyy
+XPathParams=/callScript4Document2DWH/payload/orderId
+debug=on
+shortRetryCount=2
+shortRetryInterval=90
+longRetryCount=2
+longRetryInterval=300
+timeout_read=660
+timeout_conn=3
