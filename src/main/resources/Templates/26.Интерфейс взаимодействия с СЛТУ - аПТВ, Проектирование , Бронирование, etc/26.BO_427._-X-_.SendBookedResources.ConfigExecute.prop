@@ -1,0 +1,6 @@
+ExeMetod=web-rest
+host=sus:8151
+user=dbilling
+pswd=Sda73XzpVd
+url=/LoadSLTU.phtml
+debug=on

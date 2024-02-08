@@ -1,0 +1,5 @@
+url=/integration/wservice.nsf/WebServiceCMS?OpenWebService
+host=http://CMS.KKFU:80
+timeout_read=30
+timeout_conn=5
+debug=on

@@ -1,0 +1,4 @@
+url=/rt-eapi-gate/SYNCNetworkDevelopmentWebService/NetworkDevelopmentApiImpl
+oldurl=/rt-gate/NetkDevProjectWebService/NetDevProjectWebService
+host=http://URAL.ARGUS:80
+debug=on

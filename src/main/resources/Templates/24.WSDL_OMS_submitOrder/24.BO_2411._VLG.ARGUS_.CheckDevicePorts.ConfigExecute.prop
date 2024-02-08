@@ -1,0 +1,10 @@
+timeout_read=300
+timeout_conn=3
+shortRetryCount=0
+shortRetryInterval=0
+longRetryCount=0
+longRetryInterval=0
+debug=on
+url=/rt-eapi-gate/SYNCNetworkDevelopmentWebService/NetworkDevelopmentApiImpl
+oldurl=/rt-gate/NetkDevProjectWebService/NetDevProjectWebService
+host=http://vlg.argus:80

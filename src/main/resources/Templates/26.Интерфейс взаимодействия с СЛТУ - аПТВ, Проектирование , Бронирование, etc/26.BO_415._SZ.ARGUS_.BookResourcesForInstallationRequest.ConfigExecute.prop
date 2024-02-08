@@ -1,0 +1,6 @@
+url=/rt-eapi-gate/SYNCNetworkDevelopmentWebService/NetworkDevelopmentApiImpl
+oldurl=/rt-gate/NetkDevProjectWebService/NetDevProjectWebService
+timeout_read=300
+timeout_conn=15
+MsgStream=34
+host=http://SZ.ARGUS:80

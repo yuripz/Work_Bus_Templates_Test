@@ -1,0 +1,11 @@
+ExeMetod=web-rest
+ExeProfile=queue
+host=http://sus:80
+user=dbilling
+pswd=Sda73XzpVd
+url=/SusFuncService.phtml
+queryString=FUNC\=confirmExpressPTV&QUEUE401_ID
+shortRetryCount=1
+shortRetryInterval=30
+longRetryCount=1
+longRetryInterval=45

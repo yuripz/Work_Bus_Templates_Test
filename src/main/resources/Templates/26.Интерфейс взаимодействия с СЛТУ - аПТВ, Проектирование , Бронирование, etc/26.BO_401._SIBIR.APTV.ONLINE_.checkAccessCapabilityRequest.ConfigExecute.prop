@@ -1,0 +1,10 @@
+url=?action=http://nri.rt.ru/NetworkCapability/NetworkCapabilityApi/checkAccessCapability 
+nehost=http://10.143.80.147:80
+nehost=http://10.143.80.149:80
+shortRetryCount=0
+shortRetryInterval=0
+longRetryCount=0
+longRetryInterval=0
+timeout_read=300
+timeout_conn=15
+debug=on

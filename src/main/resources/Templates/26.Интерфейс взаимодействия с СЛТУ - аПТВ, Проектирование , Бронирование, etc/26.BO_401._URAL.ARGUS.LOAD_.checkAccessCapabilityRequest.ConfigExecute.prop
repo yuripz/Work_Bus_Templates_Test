@@ -1,0 +1,7 @@
+url=/rt-eapi-gate/NetworkCapabilityWebService/NetworkCapabilityApiImpl
+oldurl=/rt-gate/NetworkCapabilityWebService/NetworkCapabilityWebService
+host=http://URAL.ARGUS:80
+MsgStream=4
+timeout_read=901
+timeout_conn=15
+debug=on

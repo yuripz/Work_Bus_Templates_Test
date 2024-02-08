@@ -1,0 +1,8 @@
+ExecMode=synchron
+MsgDirect=INSYN
+ExeMetod=web-rest
+ExeProfile=queue
+host=sus:8151
+user=dbilling
+pswd=Sda73XzpVd
+url=/LoadSLTU.phtml

@@ -1,0 +1,6 @@
+url=?action=http://nri.rt.ru/NetworkCapability/NetworkCapabilityApi/checkAccessCapability
+nehost=SIBIR.TGRAD.BASIS:80
+MsgStream=4
+timeout_read=300
+timeout_conn=15
+debug=on

@@ -1,0 +1,10 @@
+timeout_read=30
+timeout_conn=5
+shortRetryCount=1
+shortRetryInterval=20
+longRetryCount=0
+longRetryInterval=0
+WebMetod=post
+host=http://SIP:80
+url=/api/hermes/v1/project/updateprojectsip
+debug=on

@@ -1,0 +1,4 @@
+url=/rt-eapi-gate/SupplementaryWebService/SupplementaryApiImpl
+host=http://VLG.ARGUS:80
+timeout_read=1200
+timeout_conn=15

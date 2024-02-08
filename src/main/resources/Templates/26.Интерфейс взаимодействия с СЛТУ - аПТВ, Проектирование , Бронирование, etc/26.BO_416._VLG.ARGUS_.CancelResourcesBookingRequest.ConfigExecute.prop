@@ -1,0 +1,4 @@
+url=/rt-eapi-gate/SYNCNetworkDevelopmentWebService/NetworkDevelopmentApiImpl
+oldurl=/rt-gate/NetkDevProjectWebService/NetDevProjectWebService
+host=http://vlg.argus:80
+debug=on

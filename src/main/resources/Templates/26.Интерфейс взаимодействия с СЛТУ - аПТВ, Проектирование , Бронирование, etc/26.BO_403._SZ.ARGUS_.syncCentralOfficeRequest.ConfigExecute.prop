@@ -1,0 +1,5 @@
+url=/rt-eapi-gate/SupplementaryWebService/SupplementaryApiImpl
+host=http://SZ.ARGUS:80
+MsgStream=4
+timeout_read=6000
+timeout_conn=15

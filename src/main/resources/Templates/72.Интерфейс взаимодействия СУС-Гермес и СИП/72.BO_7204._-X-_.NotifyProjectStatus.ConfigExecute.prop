@@ -1,0 +1,6 @@
+debug=on
+ExeMetod=web-rest
+host=https://hermes-test.rt.ru:8103
+user=dbilling
+pswd=Sda73XzpVd
+url=/LoadSIP.phtml?json=1

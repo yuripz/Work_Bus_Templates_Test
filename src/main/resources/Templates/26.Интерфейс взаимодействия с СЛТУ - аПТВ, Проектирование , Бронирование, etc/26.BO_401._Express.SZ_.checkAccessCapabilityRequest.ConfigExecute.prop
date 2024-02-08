@@ -1,0 +1,6 @@
+url=/rt-eapi-gate/NetworkCapabilityWebService/NetworkCapabilityApiImpl
+oldurl=/rt-gate/NetworkCapabilityWebService/NetworkCapabilityWebService
+host=http://SZ.ARGUS:80
+debug=off
+timeout_read=300
+timeout_conn=15

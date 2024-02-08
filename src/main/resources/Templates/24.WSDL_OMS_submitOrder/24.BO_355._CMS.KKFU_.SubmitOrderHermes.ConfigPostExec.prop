@@ -1,0 +1,5 @@
+ExeMetod=web-rest
+host=https://hermes-test.rt.ru:443
+user=dbilling
+pswd=Sda73XzpVd
+url=/integrationApi/cmsbulktender/order_status_response

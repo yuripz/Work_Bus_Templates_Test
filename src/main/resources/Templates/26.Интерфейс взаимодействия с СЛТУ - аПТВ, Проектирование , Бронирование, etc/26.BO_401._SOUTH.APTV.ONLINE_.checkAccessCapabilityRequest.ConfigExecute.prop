@@ -1,0 +1,10 @@
+url=/rt-eapi-gate/NetworkCapabilityWebService/NetworkCapabilityApiImpl
+oldurl=/rt-gate/NetworkCapabilityWebService/NetworkCapabilityWebService
+host=http://SOUTH.ARGUS:80
+timeout_read=300
+timeout_conn=15
+debug=on
+shortRetryCount=5
+shortRetryInterval=15
+longRetryCount=2
+longRetryInterval=120

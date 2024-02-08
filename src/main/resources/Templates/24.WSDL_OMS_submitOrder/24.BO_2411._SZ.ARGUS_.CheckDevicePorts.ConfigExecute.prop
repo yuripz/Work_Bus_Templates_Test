@@ -1,0 +1,11 @@
+timeout_read=300
+timeout_conn=3
+shortRetryCount=0
+shortRetryInterval=0
+longRetryCount=0
+longRetryInterval=0
+debug=on
+remhost=http://sz.argus:8080
+url=/rt-eapi-gate/SYNCNetworkDevelopmentWebService/NetworkDevelopmentApiImpl
+oldurl=/rt-gate/NetkDevProjectWebService/NetDevProjectWebService
+host=http://sz.argus:80/

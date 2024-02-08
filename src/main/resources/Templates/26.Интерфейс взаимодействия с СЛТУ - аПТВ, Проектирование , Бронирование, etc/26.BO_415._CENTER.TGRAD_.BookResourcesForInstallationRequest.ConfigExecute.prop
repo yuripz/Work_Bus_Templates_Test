@@ -1,0 +1,4 @@
+debug=on
+SOAPAction=http://nri.rt.ru/ProjectProposalSevice/ProjectProposalSevice/BookResourcesForInstallation
+timeout_read=300
+timeout_conn=15

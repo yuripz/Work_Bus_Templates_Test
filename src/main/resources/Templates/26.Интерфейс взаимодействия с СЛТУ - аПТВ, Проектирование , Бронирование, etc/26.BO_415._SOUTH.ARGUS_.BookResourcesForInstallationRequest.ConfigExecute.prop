@@ -1,0 +1,11 @@
+oldurl=/rt-gate/NetkDevProjectWebService/NetDevProjectWebService
+url=/rt-eapi-gate/SYNCNetworkDevelopmentWebService/NetworkDevelopmentApiImpl
+oldhost=https://tz-s1argusfe.south.rt.ru:443
+host=http://SOUTH.ARGUS:80
+timeout_read=600
+timeout_conn=15
+shortRetryCount=0
+shortRetryInterval=0
+longRetryCount=0
+longRetryInterval=0
+debug=on

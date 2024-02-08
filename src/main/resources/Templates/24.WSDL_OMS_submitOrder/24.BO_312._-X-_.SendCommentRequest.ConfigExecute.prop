@@ -1,0 +1,6 @@
+ExeMetod=web-rest
+host=hermes:8080
+user=dbilling
+pswd=Sda73XzpVd
+url=/integrationApi/get_comment_request
+debug=on

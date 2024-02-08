@@ -1,0 +1,10 @@
+REurl=/DatumNodeDevel/DatumNode.svc/a?action=http://nri.rt.ru/NetworkCapability/NetworkCapabilityApi/checkAccessCapability
+url=/DatumNode/DatumNode.svc/a?action=http://nri.rt.ru/NetworkCapability/NetworkCapabilityApi/checkAccessCapability 
+host=http://CENTER.TGRAD:80
+shortRetryCount=3
+shortRetryInterval=5
+longRetryCount=0
+longRetryInterval=0
+debug=on
+timeout_read=720
+timeout_conn=2

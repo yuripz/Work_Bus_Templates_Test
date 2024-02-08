@@ -1,0 +1,4 @@
+SOAPAction=http://nri.rt.ru/Supplementary/SupplementaryApi/syncCentralOffice
+url=/DatumNode/DatumNode.svc/a?action=http://nri.rt.ru/Supplementary/SupplementaryApi/syncCentralOffice
+timeout_read=6000
+timeout_conn=15

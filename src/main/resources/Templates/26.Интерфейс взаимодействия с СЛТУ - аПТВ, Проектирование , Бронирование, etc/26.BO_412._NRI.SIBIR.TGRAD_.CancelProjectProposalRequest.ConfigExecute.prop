@@ -1,0 +1,5 @@
+debug=on
+SOAPAction=http://nri.rt.ru/ProjectProposalSevice/ProjectProposalSevice/CancelProjectProposal
+oldhost=SIBIR.TGRAD.BASIS:80
+newurl=/DatumNode/DatumNode.svc/a?action=http://nri.rt.ru/ProjectProposalSevice/ProjectProposalSevice/CancelProjectProposal
+oldurl=/DatumNode/DatumNode.svc/a
