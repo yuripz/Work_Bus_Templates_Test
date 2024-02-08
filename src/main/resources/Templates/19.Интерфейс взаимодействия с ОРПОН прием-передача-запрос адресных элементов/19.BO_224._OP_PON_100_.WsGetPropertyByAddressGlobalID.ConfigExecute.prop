@@ -1,3 +1,9 @@
+timeout_read=15
+timeout_conn=3
+shortRetryCount=2
+shortRetryInterval=7
+longRetryCount=1
+longRetryInterval=25
 host=http://10.42.78.140:18080
-url=/PONWebServices/xxx_WsGetPropertyByAddressGlobalIDB2B
+url=/PONWebServices/WsGetPropertyByAddressGlobalIDB2B
 debug=on

@@ -25,10 +25,15 @@
 					</comment>
 				</xsl:if>
 
+					
+					<xsl:if test="implementMethod !='' and  (implementMethod)">
 					<implementMethod>
 						<xsl:value-of select="implementMethod"/>
 					</implementMethod>
-
+					</xsl:if>	
+<!--					<xsl:if test="implementMethod ='' or  (not(implementMethod))"></xsl:if>
+						<xsl:value-of select="implementMethod"/>-->
+					
 
 					<ownInfrastructureRTK>
 						<xsl:value-of select="ownInfrastructureRtk"/>

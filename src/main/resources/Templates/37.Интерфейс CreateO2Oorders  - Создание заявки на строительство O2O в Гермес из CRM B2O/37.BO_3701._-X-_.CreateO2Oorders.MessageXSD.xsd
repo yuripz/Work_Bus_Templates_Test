@@ -323,7 +323,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="4">
 				<xs:annotation>
-					<xs:documentation>На согласование в ЦКИт</xs:documentation>
+					<xs:documentation>На согласование в ЦКИ</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="5">
@@ -341,24 +341,24 @@
 					<xs:documentation>План-график не согласован</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="8">
+						<xs:enumeration value="8">
 				<xs:annotation>
-					<xs:documentation>Изменения согласованы (ПИР)</xs:documentation>
+					<xs:documentation>Изменения согласованы(ПИР)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="9">
 				<xs:annotation>
-					<xs:documentation>Изменения не согласованы (ПИР)</xs:documentation>
+					<xs:documentation>Изменения не согласованы(ПИР)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="10">
 				<xs:annotation>
-					<xs:documentation>Изменения согласованы (СМР)</xs:documentation>
+					<xs:documentation>Изменения согласованы(СМР)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="11">
 				<xs:annotation>
-					<xs:documentation>Изменения не согласованы (СМР)</xs:documentation>
+					<xs:documentation>Изменения не согласованы(СМР)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="12">
@@ -380,7 +380,7 @@
 				<xs:annotation>
 					<xs:documentation>Проблема не решена</xs:documentation>
 				</xs:annotation>
-			</xs:enumeration>			
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<!--3.16.1	Структура areaList tAreaList-->

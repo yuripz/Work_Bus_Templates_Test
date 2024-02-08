@@ -1,0 +1,12 @@
+timeout_read=15
+timeout_conn=3
+shortRetryCount=3
+shortRetryInterval=11
+longRetryCount=0
+longRetryInterval=0
+encoding_out=UTF-8
+encoding_in=UTF-8
+WebMetod=post
+host=http://10.42.78.140:18080
+url=/PONWebServices/WsGetPropertyByAddressGlobalIDB2B
+debug=on

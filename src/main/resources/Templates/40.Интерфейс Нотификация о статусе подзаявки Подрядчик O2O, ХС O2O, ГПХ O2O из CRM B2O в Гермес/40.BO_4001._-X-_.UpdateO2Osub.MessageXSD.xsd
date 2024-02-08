@@ -162,17 +162,52 @@
 			</xs:element>
 		</xs:all>
 	</xs:complexType>
-	<xs:simpleType name="tOrderType">
+<xs:simpleType name="tOrderType">
 		<xs:annotation>
-			<xs:documentation>Описание значения из справочника (см. «Приложение Д»).</xs:documentation>
+			<xs:documentation>Описание значения из справочника (см. «Приложение Д»).добавлен ordertype 2, 8, 9, установлена сквозная нумерация</xs:documentation>
 		</xs:annotation>
-		    <xs:restriction base="xs:integer">
-                         <xs:enumeration value="0">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>Архив</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-                         <xs:enumeration value="8">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Подготовка пАВТ и утверждение АВТ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>На корректировку в КБ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Пересмотр АВТ (на этап Утверждение АВТ)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>На согласование в ЦКИ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation>На распределение работ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation>План-график согласован</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation>План-график не согласован</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+						<xs:enumeration value="8">
 				<xs:annotation>
 					<xs:documentation>Изменения согласованы(ПИР)</xs:documentation>
 				</xs:annotation>
@@ -192,14 +227,24 @@
 					<xs:documentation>Изменения не согласованы(СМР)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:documentation>Документы согласованы и подписаны</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="13">
 				<xs:annotation>
 					<xs:documentation>Требуется корректировка документов</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="12">
+			<xs:enumeration value="14">
 				<xs:annotation>
-					<xs:documentation>Документы согласованы и подписаны</xs:documentation>
+					<xs:documentation>Проблема решена</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="15">
+				<xs:annotation>
+					<xs:documentation>Проблема не решена</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

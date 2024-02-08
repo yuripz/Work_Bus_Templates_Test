@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:element name="UpdateO2OworkTypes" type="tUpdateO2OworkTypes"/>
+	<xs:element name="А" type="tUpdateO2OworkTypes"/>
 	<!--
 Выходные параметры Нотификация по Проблеме (UpdateO2OworkTypes)  в Гермес из CRM B2O-->
 	<xs:complexType name="tResponseO2OworkTypes">
@@ -170,11 +170,81 @@
 			</xs:element>
 		</xs:all>
 	</xs:complexType>
-	<xs:simpleType name="tOrderType">
+<xs:simpleType name="tOrderType">
 		<xs:annotation>
-			<xs:documentation>Описание значения из справочника (см. «Приложение Д»).</xs:documentation>
+			<xs:documentation>Описание значения из справочника (см. «Приложение Д»).добавлен ordertype 2, 8, 9, установлена сквозная нумерация</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:integer">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>Архив</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Подготовка пАВТ и утверждение АВТ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>На корректировку в КБ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Пересмотр АВТ (на этап Утверждение АВТ)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>На согласование в ЦКИ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation>На распределение работ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation>План-график согласован</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation>План-график не согласован</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+						<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation>Изменения согласованы(ПИР)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation>Изменения не согласованы(ПИР)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation>Изменения согласованы(СМР)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation>Изменения не согласованы(СМР)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:documentation>Документы согласованы и подписаны</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation>Требуется корректировка документов</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="14">
 				<xs:annotation>
 					<xs:documentation>Проблема решена</xs:documentation>
