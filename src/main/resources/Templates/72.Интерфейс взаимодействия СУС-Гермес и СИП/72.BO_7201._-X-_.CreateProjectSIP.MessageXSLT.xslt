@@ -13,11 +13,11 @@
 					<projectId>
 						<xsl:value-of select="/CreateProjectSIP/projectId"/>
 					</projectId>
-					<projectSIPId/>
+					<projectSIPId><xsl:value-of select="/CreateProjectSIP/projectSIPId"/></projectSIPId>
 					<projectURL>
 						<xsl:value-of select="/CreateProjectSIP/projectURL"/>
 					</projectURL>
-					<projectAction>CREATEINVEST</projectAction>
+					<projectAction><xsl:value-of select="/CreateProjectSIP/projectAction"/></projectAction>
 					<xsl:copy-of select="/CreateProjectSIP/projectIP"/>
 					<projectParties>
 						<xsl:for-each select="projectParties">

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:element name="А" type="tUpdateO2OworkTypes"/>
+	<xs:element name="UpdateO2OworkTypes" type="tUpdateO2OworkTypes"/>
+	<xs:element name="ResponseO2OworkTypes" type="tResponseO2OworkTypes"/>
 	<!--
 Выходные параметры Нотификация по Проблеме (UpdateO2OworkTypes)  в Гермес из CRM B2O-->
 	<xs:complexType name="tResponseO2OworkTypes">
