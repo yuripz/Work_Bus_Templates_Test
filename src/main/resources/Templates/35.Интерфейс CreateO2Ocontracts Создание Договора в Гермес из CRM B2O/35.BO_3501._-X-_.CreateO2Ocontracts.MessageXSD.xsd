@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xs:element name="CreateO2Ocontracts" type="tCreateO2Ocontract"/>
+	<!--	 -->
+	<xs:complexType name="tCreateO2Ocontract">
+		<xs:annotation>
+			<xs:documentation>Тип для Создания  договора СМР (CreateO2Ocontracts)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tO2Ocontract"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="tUpdateO2Ocontract">
+		<xs:annotation>
+			<xs:documentation>Тип для Oбновления  договора СМР (UpdateO2Ocontracts)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tO2Ocontract">
+				<xs:sequence>
+					<xs:element name="externalContractId" type="xs:integer">
+						<xs:annotation>
+							<xs:documentation>Номер договора в Гермес</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--
+Выходные параметры Создания/Oбновления  договора СМР (CreateO2Ocontracts)  из CRM-->
+	<xs:complexType name="tResponseO2Ocontract">
+		<xs:annotation>
+			<xs:documentation>Выходные параметры Создания/Oбновления  договора СМР (CreateO2Ocontracts)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="O2OAPIResponse">
+				<xs:sequence>
+					<xs:element name="externalContractId" type="xs:integer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Номер договора в Гермес</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="contractId" type="xs:integer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Идентификатор договора в CRM</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--
+	Тип для Создания  Оператора  (CreateO2Ooperators)  из CRM -->
+	<xs:complexType name="tUpdateO2Ooperator">
+		<xs:annotation>
+			<xs:documentation>Тип для Создания  Оператора  (UpdateO2Ooperators)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tO2Ooperator">
+				<xs:sequence>
+					<xs:element name="externalOperatorId" type="xs:integer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Номер оператора в Гермес</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--Выходные параметры Создания/Oбновления  Оператора   (UpdateO2Ooperators/ CreateO2Ooperators)  из CRM-->
+	<xs:complexType name="tResponseO2Ooperator">
+		<xs:annotation>
+			<xs:documentation>Выходные параметры Создания/Oбновления  Оператора   (UpdateO2Ooperators/ CreateO2Ooperators)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="O2OAPIResponse">
+				<xs:sequence>
+					<xs:element name="externalOperatorId" type="xs:integer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Номер оператора в Гермес</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="number" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Идентификатор оператора в CRM B2O</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--
+Тип для Создания  Оператора  (CreateO2Ooperators)  из CRM 
+-->
+	<xs:complexType name="tCreateO2Ooperator">
+		<xs:annotation>
+			<xs:documentation>Тип для Создания  Оператора  (CreateO2Ooperators)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tO2Ooperator"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="tO2Ooperator" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Абстрактный базовый тип для Создания/Oбновления  Оператора  (CreateO2Ooperators)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="O2OAPIRequest">
+				<xs:sequence>
+					<xs:element name="number" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Идентификатор оператора в CRM B2O</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="wfmOperatorId" type="xs:integer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Идентификационный номер оператора в WFM</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Наименование оператора в CRM B2O</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inn" type="tTaxIdRussia" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>ИНН оператора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="kpp" type="tKPPIdRussia" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>КПП оператора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="status" type="tStatus" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Cтатус оператора (1- Активен, 0 - Неактивен)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>адрес электронной почты оператора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>контактный телефон оператора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="mainOrganization" type="tStatus" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>признак оператора (1- Головная организация, 0 – Дочерняя организация)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="mainId" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Идентификатор головной организации если mainOrganization = 0</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Абстрактный базовый тип для Создания/Oбновления  договора СМР (CreateO2Ocontracts/UpdateO2Ocontracts) -->
+	<xs:complexType name="tO2Ocontract" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Абстрактный базовый тип для Создания/Oбновления  договора СМР (CreateO2Ocontracts/UpdateO2Ocontracts)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="O2OAPIRequest">
+				<xs:sequence>
+					<xs:element name="contractId" type="xs:integer">
+						<xs:annotation>
+							<xs:documentation>ИД договора в CRM</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="number" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Номер договора с Оператором</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Наименование договора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="startDate" type="xs:date" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Дата начала действия договора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="endDate" type="xs:date" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Дата окончания действия договора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="status" type="tStatus" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Статус договора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Комментарий к договору</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="externalOperatorId" type="xs:integer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Идентификатор оператора в Гермес</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="regions" type="tRegionsList" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Атрибуты РФ распространения действия договора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 3.16.13	Структура regions-->
+	<xs:complexType name="tRegion">
+		<xs:annotation>
+			<xs:documentation>Регион распространения действия договора</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="globalId" type="regionCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Глобальный идентификатор региона в системе CRM</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Наименование региона (см. «Приложение В»)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="tRegionsList">
+		<xs:annotation>
+			<xs:documentation>В данной структуре передается информация по региону распространения действия договора</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="region" type="tRegion" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Атрибуты региона распространения действия договора</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="tStatus">
+		<xs:annotation>
+			<xs:documentation>Статус экземпляра сущности</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Активен</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>Неактивен</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Приложение В	Справочник регионов -->
+	<xs:simpleType name="regionCode">
+		<xs:annotation>
+			<xs:documentation>Приложение В	Справочник регионов</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="5200002">
+				<xs:annotation>
+					<xs:documentation>Город Севастополь</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200017">
+				<xs:annotation>
+					<xs:documentation>Республика Крым</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200048">
+				<xs:annotation>
+					<xs:documentation>Город Москва</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200026">
+				<xs:annotation>
+					<xs:documentation>Камчатский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200037">
+				<xs:annotation>
+					<xs:documentation>Республика Саха /Якутия/</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200021">
+				<xs:annotation>
+					<xs:documentation>Сахалинская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200008">
+				<xs:annotation>
+					<xs:documentation>Красноярский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200018">
+				<xs:annotation>
+					<xs:documentation>Республика Бурятия</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200027">
+				<xs:annotation>
+					<xs:documentation>Республика Тыва</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200031">
+				<xs:annotation>
+					<xs:documentation>Кемеровская Область-Кузбасс</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200020">
+				<xs:annotation>
+					<xs:documentation>Забайкальский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200034">
+				<xs:annotation>
+					<xs:documentation>Томская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200004">
+				<xs:annotation>
+					<xs:documentation>Курганская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200030">
+				<xs:annotation>
+					<xs:documentation>Челябинская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200009">
+				<xs:annotation>
+					<xs:documentation>Тюменская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200016">
+				<xs:annotation>
+					<xs:documentation>Пермский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200029">
+				<xs:annotation>
+					<xs:documentation>Ханты-Мансийский Автономный округ - Югра</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200036">
+				<xs:annotation>
+					<xs:documentation>Самарская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200015">
+				<xs:annotation>
+					<xs:documentation>Республика Мордовия</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200023">
+				<xs:annotation>
+					<xs:documentation>Республика Марий Эл</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200006">
+				<xs:annotation>
+					<xs:documentation>Саратовская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200033">
+				<xs:annotation>
+					<xs:documentation>Ульяновская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200025">
+				<xs:annotation>
+					<xs:documentation>Пензенская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200019">
+				<xs:annotation>
+					<xs:documentation>Город Санкт-Петербург</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200028">
+				<xs:annotation>
+					<xs:documentation>Вологодская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200011">
+				<xs:annotation>
+					<xs:documentation>Архангельская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200013">
+				<xs:annotation>
+					<xs:documentation>Ленинградская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200022">
+				<xs:annotation>
+					<xs:documentation>Республика Дагестан</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200010">
+				<xs:annotation>
+					<xs:documentation>Ставропольский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200038">
+				<xs:annotation>
+					<xs:documentation>Кабардино-Балкарская Республика</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200003">
+				<xs:annotation>
+					<xs:documentation>Республика Северная Осетия - Алания</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200044">
+				<xs:annotation>
+					<xs:documentation>Чеченская Республика</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200057">
+				<xs:annotation>
+					<xs:documentation>Город Байконур</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200060">
+				<xs:annotation>
+					<xs:documentation>Республика Башкортостан</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200040">
+				<xs:annotation>
+					<xs:documentation>Ивановская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200052">
+				<xs:annotation>
+					<xs:documentation>Хабаровский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200076">
+				<xs:annotation>
+					<xs:documentation>Амурская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200069">
+				<xs:annotation>
+					<xs:documentation>Магаданская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200054">
+				<xs:annotation>
+					<xs:documentation>Приморский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200062">
+				<xs:annotation>
+					<xs:documentation>Чукотский Автономный Округ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200068">
+				<xs:annotation>
+					<xs:documentation>Алтайский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200041">
+				<xs:annotation>
+					<xs:documentation>Республика Хакасия</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200012">
+				<xs:annotation>
+					<xs:documentation>Омская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200051">
+				<xs:annotation>
+					<xs:documentation>Республика Алтай</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200032">
+				<xs:annotation>
+					<xs:documentation>Новосибирская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200072">
+				<xs:annotation>
+					<xs:documentation>Ямало-Ненецкий Автономный Округ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200064">
+				<xs:annotation>
+					<xs:documentation>Республика Татарстан</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200073">
+				<xs:annotation>
+					<xs:documentation>Удмуртская Республика</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200042">
+				<xs:annotation>
+					<xs:documentation>Оренбургская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200059">
+				<xs:annotation>
+					<xs:documentation>Чувашская Республика</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200063">
+				<xs:annotation>
+					<xs:documentation>Кировская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200045">
+				<xs:annotation>
+					<xs:documentation>Нижегородская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200047">
+				<xs:annotation>
+					<xs:documentation>Калининградская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200049">
+				<xs:annotation>
+					<xs:documentation>Мурманская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200061">
+				<xs:annotation>
+					<xs:documentation>Новгородская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200077">
+				<xs:annotation>
+					<xs:documentation>Псковская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200055">
+				<xs:annotation>
+					<xs:documentation>Республика Коми</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200056">
+				<xs:annotation>
+					<xs:documentation>Республика Калмыкия</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200053">
+				<xs:annotation>
+					<xs:documentation>Карачаево-Черкесская Республика</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200065">
+				<xs:annotation>
+					<xs:documentation>Республика Ингушетия</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200035">
+				<xs:annotation>
+					<xs:documentation>Краснодарский Край</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200067">
+				<xs:annotation>
+					<xs:documentation>Волгоградская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200075">
+				<xs:annotation>
+					<xs:documentation>Астраханская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200081">
+				<xs:annotation>
+					<xs:documentation>Республика Адыгея</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200043">
+				<xs:annotation>
+					<xs:documentation>Московская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200082">
+				<xs:annotation>
+					<xs:documentation>Рязанская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200070">
+				<xs:annotation>
+					<xs:documentation>Липецкая Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200039">
+				<xs:annotation>
+					<xs:documentation>Брянская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200071">
+				<xs:annotation>
+					<xs:documentation>Смоленская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200079">
+				<xs:annotation>
+					<xs:documentation>Орловская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200086">
+				<xs:annotation>
+					<xs:documentation>Тверская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200085">
+				<xs:annotation>
+					<xs:documentation>Костромская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200080">
+				<xs:annotation>
+					<xs:documentation>Калужская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200014">
+				<xs:annotation>
+					<xs:documentation>Воронежская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200005">
+				<xs:annotation>
+					<xs:documentation>Тульская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200050">
+				<xs:annotation>
+					<xs:documentation>Курская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200058">
+				<xs:annotation>
+					<xs:documentation>Тамбовская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200074">
+				<xs:annotation>
+					<xs:documentation>Владимирская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200024">
+				<xs:annotation>
+					<xs:documentation>Белгородская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200087">
+				<xs:annotation>
+					<xs:documentation>Иркутская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200078">
+				<xs:annotation>
+					<xs:documentation>Ненецкий Автономный Округ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200084">
+				<xs:annotation>
+					<xs:documentation>Свердловская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200046">
+				<xs:annotation>
+					<xs:documentation>Республика Карелия</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200083">
+				<xs:annotation>
+					<xs:documentation>Ростовская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200007">
+				<xs:annotation>
+					<xs:documentation>Ярославская Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5200066">
+				<xs:annotation>
+					<xs:documentation>Еврейская Автономная Область</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="emptyAnyString">
+		<xs:restriction base="xs:string">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tUridicalTaxID">
+		<xs:restriction base="xs:string">
+			<xs:length value="10"/>
+			<xs:pattern value="[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tPhuslTaxID">
+		<xs:restriction base="xs:string">
+			<xs:length value="12"/>
+			<xs:pattern value="[0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tTaxIdRussia">
+		<xs:union memberTypes="tUridicalTaxID tPhuslTaxID emptyAnyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="tKPP">
+		<xs:annotation>
+			<xs:documentation>Код причины постановки на учет (КПП)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="9"/>
+			<xs:pattern value="([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tKPPIdRussia">
+		<xs:union memberTypes="tKPP emptyAnyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableDate">
+		<xs:union memberTypes="xs:date emptyAnyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableInt">
+		<xs:union memberTypes="xs:integer emptyAnyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableDecimal">
+		<xs:union memberTypes="xs:decimal emptyAnyString"/>
+	</xs:simpleType>
+	<!-- Система-отправитель. Передается значение «HRMS» -->
+	<xs:simpleType name="fromCode">
+		<xs:annotation>
+			<xs:documentation>Система-отправитель. Передается значение «CRM B2O»</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CRM B2O">
+				<xs:annotation>
+					<xs:documentation>Система-отправитель</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Система-получатель. Передается значение «CRM B2O»-->
+	<xs:simpleType name="toCode">
+		<xs:annotation>
+			<xs:documentation>Система-получатель. Передается значение «HRMS»</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HRMS">
+				<xs:annotation>
+					<xs:documentation>Система-получатель</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="O2OAPIRequest" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Абстрактный базовый тип для структуры запроса</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="from" type="fromCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Система-отправитель CRM B2O</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="to" type="toCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Система-получатель. HRMS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Идентификатор транзакции на вызывающей стороне</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="O2OAPIResponse" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Абстрактный базовый тип для структуры ответа на запрос</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="from" type="toCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Система-отправитель HRMS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="to" type="fromCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Система-получатель. CRM B2O</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="responseCode" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Код завершения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="responseBody" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Комментарий к завершению</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

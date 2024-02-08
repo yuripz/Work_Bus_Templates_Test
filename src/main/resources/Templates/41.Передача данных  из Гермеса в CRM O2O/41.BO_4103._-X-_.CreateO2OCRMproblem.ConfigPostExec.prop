@@ -1,0 +1,6 @@
+ExeMetod=web-rest
+host=https://hermes-test.rt.ru:443
+Hhost=hermes:80
+user=dbilling
+pswd=Sda73XzpVd
+url=/o2o/integration/create_building_problem

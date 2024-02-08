@@ -1,0 +1,9 @@
+encoding_out=UTF-8
+encoding_in=UTF-8
+WebMetod=get
+host=https://api.telegram.org:443
+NGNIXhost=telegram:80
+url=/bot5669950531:AAHOAc6OAEH6crQ9czriu3PUq7vwD2sbRZw/sendMessage
+OLDurl=/bot1450268713:AAGMgWJ1ET91dvY5KofxNfXJBRJ_iFpTqZo/sendMessage
+debug=on
+

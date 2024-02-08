@@ -1,0 +1,6 @@
+debug=on
+ExeMetod=web-rest
+host=hermesapp:8080
+url=/o2o/integration/update_vols
+user=dbilling
+pswd=Sda73XzpVd

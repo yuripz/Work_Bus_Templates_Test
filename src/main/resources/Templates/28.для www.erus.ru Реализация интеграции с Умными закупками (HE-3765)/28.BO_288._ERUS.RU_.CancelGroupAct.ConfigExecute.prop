@@ -1,0 +1,8 @@
+timeout_read=3900
+timeout_conn=5
+debug=on
+url=/API/WebService
+host=https://sz-rt.test.etc.ru:443
+SOAPAction=http://etc.ru/WebService/PutXml
+timeout_read=90
+timeout_conn=5

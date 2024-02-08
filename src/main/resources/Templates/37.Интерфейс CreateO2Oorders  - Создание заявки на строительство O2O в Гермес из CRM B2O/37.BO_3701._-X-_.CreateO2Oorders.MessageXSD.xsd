@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xs:element name="CreateO2Oorders" type="tCreateO2Oorder"/>
+	<!--	 -->
+	<xs:complexType name="tCreateO2Oorder">
+		<xs:annotation>
+			<xs:documentation>Тип для Создания  заказа СМР (CreateO2Oorders)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tO2Oorder">
+				<xs:sequence>
+					<xs:element name="areaList" type="tAreaList" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>информация об участках </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="managerInfo" type="tManagerInfo" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Контактная информация по заказу СМР со стороны КБ</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="attachmentInfo" type="tAttachmentInfoList" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Вложения к заказу СМР</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="objectIdWfm" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>ИД объекта ВОЛС в WFM</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="tUpdateO2Oorder">
+		<xs:annotation>
+			<xs:documentation>Тип для Oбновления  заказа СМР (UpdateO2Oorders)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tO2Oorder">
+				<xs:sequence>
+					<xs:element name="areaList" type="tAreaList" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>информация об участках </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="managerInfo" type="tManagerInfo" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Контактная информация по заказу СМР со стороны КБ</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="attachmentInfo" type="tAttachmentInfoList" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Вложения к заказу СМР</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="objectIdWfm" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>ИД объекта ВОЛС в WFM</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="externalOrderId" type="xs:integer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Номер заявки в Гермес</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--
+Выходные параметры Создание/Обновление  заявки на строительство O2O (ВОЛС)  в Гермес (CreateO2Oorders/UpdateO2Oorders)-->
+	<xs:complexType name="tResponseO2Oorder">
+		<xs:annotation>
+			<xs:documentation>Выходные параметры Создания/Обновления заявки на строительство O2O (ВОЛС)  в Гермес (CreateO2Oorders/UpdateO2Oorders)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="O2OAPIResponse">
+				<xs:sequence>
+					<xs:element name="externalOrderId" type="xs:integer">
+						<xs:annotation>
+							<xs:documentation>Номер заявки в Гермес</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="number" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>ИД заказа в CRM B2O</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Абстрактный базовый тип для Создания/Oбновления  заявки на строительство O2O (ВОЛС)  в Гермес (CreateO2Oorders/UpdateO2Oorders) -->
+	<xs:complexType name="tO2Oorder" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Абстрактный базовый тип для Создания/Oбновления  заявки на строительство O2O (ВОЛС)  в Гермес(CreateO2Oorders/UpdateO2Oorders)  из CRM</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="O2OAPIRequest">
+				<xs:sequence>
+					<xs:element name="type" type="tType">
+						<xs:annotation>
+							<xs:documentation>Тип объекта. Передается значение vols</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="number">
+						<xs:annotation>
+							<xs:documentation>ИД заказа в CRM B2O</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:minLength value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="createDate" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Дата создания заказа СМР</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="processingDate" type="xs:date" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Дата подготовки пАВТ	processing</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="plannedDate" type="xs:date" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Плановая дата сдачи объекта (по договору)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="plannedStartDate" type="xs:date" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Желаемая дата начала работ</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="comment" type="xs:string" nillable="false" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Комментарий к заказу СМР</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="amout" type="xs:decimal" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Сумма по заказу, без НДС, руб. (доход)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="needCheck" type="tStatus" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Необходимость проведения обследования. Доступные варианты:  1 – Да	0 – Нет</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="programCode" type="tProgramCode" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Атрибуты кода программы O2O</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="investmentCode" type="xs:string" nillable="false" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>«Индивидуальный ИП R12» до внедрения системы СИП, после внедрения перенаправить в «Резервный инвестиционный проект»</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="statusInfo" type="tStatusInfo" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Атрибуты Статуса заказа Структура statusInfo</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="externalOperatorId" type="xs:integer">
+						<xs:annotation>
+							<xs:documentation>Идентификатор оператора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="externalContractId" type="xs:integer">
+						<xs:annotation>
+							<xs:documentation>Идентификатор договора</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--	
+
+-->
+	<!--3.16.3	Структура tAttachmentInfo -->
+	<xs:complexType name="tAttachmentInfoList">
+		<xs:annotation>
+			<xs:documentation>Вложения к заказу СМР ( массив )</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="attachments" type="tAttachmentInfo" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Массив наборов параметров по вложениям</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tAttachmentInfo">
+		<xs:annotation>
+			<xs:documentation>Структура описывает набор параметров по вложениям</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="attachment" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Бар-код из ЕХД</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="typeId" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Идентификатор Типа вложения (см. Приложение Б)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="creationDate" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Дата загрузки вложения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="author" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Автор вложения (кто загрузил). Пример: Иванов Иван Иванович</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fileName" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Наименование файла. Пример: Техническое задание</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fileExtension" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Расширение файла. Пример: .pdf</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="parentAttachment" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Бар-код из ЕХД первоначальной версии</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<!--3.16.7	Структура managerInfo tManagerInfo -->
+	<xs:complexType name="tManagerInfo">
+		<xs:annotation>
+			<xs:documentation>Структура описывает параметры контактной информация по заказу СМР со стороны КБ</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="managerFio" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>ФИО</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="managerPhone" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Номер телефона</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="managerEmail" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>E-mail</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<!--3.16.11	Структура programCode-->
+	<xs:complexType name="tProgramCode">
+		<xs:annotation>
+			<xs:documentation>Структура описывает параметры Программы ОРЕХ</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="code" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Код программы</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="programName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Наименование программы</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<!--3.16.13	Структура statusInfo-->
+	<xs:complexType name="tStatusInfo">
+		<xs:annotation>
+			<xs:documentation>Атрибуты Статуса заказа - Статус заказа СМР</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="ordertype" type="tOrderType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Описание значения из справочника (см. «Приложение Д»). При создании заявки передается значение 1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Комментарий к статусу</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:simpleType name="tOrderType">
+		<xs:annotation>
+			<xs:documentation>Описание значения из справочника (см. «Приложение Д»).добавлен ordertype 2, 8, 9, установлена сквозная нумерация</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>Архив</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Подготовка пАВТ и утверждение АВТ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>На корректировку в КБ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Пересмотр АВТ (на этап Утверждение АВТ)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>На согласование в ЦКИт</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation>На распределение работ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation>План-график согласован</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="7">
+				<xs:annotation>
+					<xs:documentation>План-график не согласован</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="8">
+				<xs:annotation>
+					<xs:documentation>Изменения согласованы (ПИР)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="9">
+				<xs:annotation>
+					<xs:documentation>Изменения не согласованы (ПИР)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation>Изменения согласованы (СМР)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:documentation>Изменения не согласованы (СМР)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:documentation>Документы согласованы и подписаны</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation>Требуется корректировка документов</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="14">
+				<xs:annotation>
+					<xs:documentation>Проблема решена</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="15">
+				<xs:annotation>
+					<xs:documentation>Проблема не решена</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>
+	<!--3.16.1	Структура areaList tAreaList-->
+	<xs:complexType name="tAreaList">
+		<xs:annotation>
+			<xs:documentation>массив наборов параметров по участкам</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="area" type="tArea" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>набор параметров по участку</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--==============-->
+	<xs:complexType name="tArea">
+		<xs:annotation>
+			<xs:documentation>набор параметров по участкам</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Идентификатор участка в системе CRM. Атрибут является ключом</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pointA" type="tPoint" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Основной адрес участка. Параметр передается только в методе создания заявки на строительство в Гермес. Обновление недоступно</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pointB" type="tPoint" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Дополнительные адреса участка. Параметр передается только в методе создания заявки на строительство в Гермес. Обновление недоступно</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pointsN" type="tPointsNList" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Дополнительные адреса участка. Параметр передается только в методе создания заявки на строительство в Гермес </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cable" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Емкость кабеля. Допустимые значения приведены в «Приложение Г»</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="distance" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Протяженность участка ВОЛС, в км</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="couplerInfoList" type="tCouplerInfoList" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>массив мест по размещению разветвительных муфт</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Комментарий к участку. Ограничение по количеству символов – 1000</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<!--3.16.5	Структура couplerInfo -->
+	<xs:complexType name="tCouplerInfo">
+		<xs:annotation>
+			<xs:documentation>место размещения разветвительной муфты</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="id" type="xs:long" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Идентификатор муфты</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="coupler" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Место размещения кластерной (разветвительной) муфты</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="tCouplerInfoList">
+		<xs:annotation>
+			<xs:documentation>массив мест по размещению разветвительных муфт</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="couplerInfo" type="tCouplerInfo" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Идентификатор муфты</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--3.16.8-9	Структура pointA-B -->
+	<xs:complexType name="tPoint">
+		<xs:annotation>
+			<xs:documentation>Структура описывает параметры адреса Точки</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="addressGid" type="xs:long" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>addressGid точки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="latitude" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Широта</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="longitude" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Долгота</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="addressComment" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Комментарий к адресу</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactInfo" type="tContactInfo" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>контактная информация по заказу СМР со стороны клиента (оператора)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--3.16.10	Структура pointN -->
+	<xs:complexType name="tPointN">
+		<xs:annotation>
+			<xs:documentation>Структура описывает параметры адреса Точки N</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tPoint">
+				<xs:sequence>
+					<xs:element name="nPoint" type="xs:integer">
+						<xs:annotation>
+							<xs:documentation>N(1, 2, n, 30), номер Дополнительного адреса участка</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--========================-->
+	<xs:complexType name="tPointsNList">
+		<xs:annotation>
+			<xs:documentation>Структура описывает наборы параметров по участкам.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="pointN" type="tPointN" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Список параметров адреса Точки N(1, 2, n, 30), количество может быть не более 30</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--3.16.4	Структура contactInfo-->
+	<xs:complexType name="tContactInfo">
+		<xs:annotation>
+			<xs:documentation>Структура описывает параметры контактной информация по заказу СМР со стороны КБ</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="contactFio" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>ФИО</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactPhone" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Номер телефона</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactEmail" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>E-mail</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:simpleType name="tStatus">
+		<xs:annotation>
+			<xs:documentation>Статус экземпляра сущности</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Активен</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>Неактивен</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Тип объекта. Передается значение vols-->
+	<xs:simpleType name="tType">
+		<xs:annotation>
+			<xs:documentation>Тип объекта. Передается значение vols»</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="vols">
+				<xs:annotation>
+					<xs:documentation>Передается значение vols</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Система-отправитель. Передается значение «CRM B2O» -->
+	<xs:simpleType name="fromCode">
+		<xs:annotation>
+			<xs:documentation>Система-отправитель. Передается значение «CRM B2O»</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CRM B2O">
+				<xs:annotation>
+					<xs:documentation>Система-отправитель</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Система-получатель. Передается значение «HRMS»-->
+	<xs:simpleType name="toCode">
+		<xs:annotation>
+			<xs:documentation>Система-получатель. Передается значение «HRMS»</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HRMS">
+				<xs:annotation>
+					<xs:documentation>Система-получатель</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="emptyAnyString">
+		<xs:restriction base="xs:string">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tUridicalTaxID">
+		<xs:restriction base="xs:string">
+			<xs:length value="10"/>
+			<xs:pattern value="[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tPhuslTaxID">
+		<xs:restriction base="xs:string">
+			<xs:length value="12"/>
+			<xs:pattern value="[0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tTaxIdRussia">
+		<xs:union memberTypes="tUridicalTaxID tPhuslTaxID emptyAnyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="tKPP">
+		<xs:annotation>
+			<xs:documentation>Код причины постановки на учет (КПП)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="9"/>
+			<xs:pattern value="([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tKPPIdRussia">
+		<xs:union memberTypes="tKPP emptyAnyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableDate">
+		<xs:union memberTypes="xs:date emptyAnyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableInt">
+		<xs:union memberTypes="xs:integer emptyAnyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableDecimal">
+		<xs:union memberTypes="xs:decimal emptyAnyString"/>
+	</xs:simpleType>
+	<xs:complexType name="O2OAPIRequest" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Абстрактный базовый тип для структуры запроса</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="from" type="fromCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Система-отправитель CRM B2O</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="to" type="toCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Система-получатель. HRMS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="id" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Идентификатор транзакции на вызывающей стороне</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="O2OAPIResponse" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Абстрактный базовый тип для структуры ответа на запрос</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="from" type="toCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Система-отправитель HRMS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="to" type="fromCode" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Система-получатель. CRM B2O</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="responseCode" type="xs:integer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Код завершения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="responseBody" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Комментарий к завершению</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

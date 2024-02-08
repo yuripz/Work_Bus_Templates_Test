@@ -1,0 +1,6 @@
+debug=on
+ExeMetod=web-rest
+host=hermesapp:8080
+user=dbilling
+pswd=Sda73XzpVd
+url=/o2o/integration/notify_construction

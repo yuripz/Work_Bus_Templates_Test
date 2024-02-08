@@ -1,0 +1,5 @@
+url=/API/WebService?Action=http://etc.ru/WebService/PutXml
+host=https://sz-rt.test.etc.ru
+hlost=http://ERUS.LOCAL:80
+timeout_read=3900
+timeout_conn=5

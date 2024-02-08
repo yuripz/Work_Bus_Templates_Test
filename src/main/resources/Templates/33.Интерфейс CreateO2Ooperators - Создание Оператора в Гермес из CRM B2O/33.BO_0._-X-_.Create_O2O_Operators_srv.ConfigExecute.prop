@@ -1,0 +1,3 @@
+debug=on
+xxx_custom_Fault_Begin=<custom_Fault_Begin><ER>500</ER>
+xxx_custom_Fault_End=</custom_Fault_Begin>
