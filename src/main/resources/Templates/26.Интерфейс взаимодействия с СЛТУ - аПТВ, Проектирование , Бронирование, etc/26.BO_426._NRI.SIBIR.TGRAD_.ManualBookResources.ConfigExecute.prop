@@ -1,0 +1,5 @@
+debug=on
+timeout_read=300
+timeout_conn=7
+url=/api/gs_api/nri_germes_disign/ProjectProposalSevice
+host=http://SIBIR.TGRAD.BASIS:80

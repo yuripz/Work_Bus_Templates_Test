@@ -164,6 +164,22 @@
 								<!-- Тег из БО-96 -->
 							</FIELDVALUE>
 						</item>
+							<item>
+								<FIELDNAME>DateChange</FIELDNAME>
+								<FIELDVALUE xsi:type="soapenc:Array" soapenc:arrayType="xsd:string[1]">
+									<item>
+										<xsl:value-of select="PredictDateChanged"/>
+									</item>
+								</FIELDVALUE>
+							</item>
+                                                                      <item>
+								<FIELDNAME>PredictOrderDate</FIELDNAME>
+								<FIELDVALUE xsi:type="soapenc:Array" soapenc:arrayType="xsd:string[1]">
+									<item>
+										<xsl:value-of select="PredictOrderDate"/>
+									</item>
+								</FIELDVALUE>
+							</item>
 						<item>
 							<FIELDNAME>fldIsAddCapCosts</FIELDNAME>
 							<FIELDVALUE xsi:type="soapenc:Array" soapenc:arrayType="xsd:string[1]">

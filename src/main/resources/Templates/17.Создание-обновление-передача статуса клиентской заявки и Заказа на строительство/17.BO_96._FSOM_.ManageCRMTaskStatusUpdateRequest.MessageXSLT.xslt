@@ -194,7 +194,7 @@
 								</partyAttributes>
 							</orderParty>
 						</xsl:if>
-						<xsl:if test="(/CRMTaskStatusUpdate/CRMRequestStatus= 'COMPLETE') and not(/CRMTaskStatusUpdate/Worker/partyId='')">
+						<xsl:if test="(/CRMTaskStatusUpdate/CRMRequestStatus= 'COMPLETE') and not(/CRMTaskStatusUpdate/Worker/partyId!='')">
 							<orderParty>
 								<partyRole>WORKER</partyRole>
 								<partyId>daemon</partyId>
@@ -209,7 +209,7 @@
 							<!--несколько вариантов solution для БО -->
 							<xsl:for-each select="LastPTVInfo">
 								<xsl:for-each select="LastPTVCap">
-									<xsl:if test="not(CRMnotificationStatus= 'MANUAL' or CRMnotificationStatus= 'SURVEY_REQUIRED' or CRMnotificationStatus='SLA_CALCULATED' or OPPTVCAP_TYPE= 'NEIGHBOR_DEVELOPMENT')">
+									<xsl:if test="not(CRMnotificationStatus= 'MANUAL' or CRMnotificationStatus= 'SURVEY_REQUIRED' or CRMnotificationStatus='SLA_CALCULATED')">
 										<orderParty>
 											<partyRole>SOLUTION</partyRole>
 											<partyId>
@@ -270,6 +270,14 @@
 												<attribute name="installationCost">
 													<xsl:value-of select="/CRMTaskStatusUpdate/OpexInstallCost"/>
 												</attribute>
+												<xsl:if test="CONNECTION_TYPE = 'LightNet'">
+													<attribute name="totalOptionsLightNet">
+														<xsl:value-of select="totalOptionsLightNet"/>
+													</attribute>
+													<attribute name="minimalLengthLightNet">
+														<xsl:value-of select="minimalLengthLightNet"/>
+													</attribute>
+												</xsl:if>
 												<attribute name="equipmentList">
 													<xsl:for-each select="eq">
 														<equipment>
@@ -355,7 +363,8 @@
 										<attribute name="isMain">true</attribute>
 										<attribute name="connectionType">
 											<xsl:if test="/CRMTaskStatusUpdate/TVready=''">OffNet</xsl:if>
-											<xsl:if test="/CRMTaskStatusUpdate/TVready!=''">OnNet</xsl:if>
+											<xsl:if test="/CRMTaskStatusUpdate/TVready !='' and (not(/CRMTaskStatusUpdate/LightNet) or /CRMTaskStatusUpdate/LightNet ='' )">OnNet</xsl:if>
+											<xsl:if test="/CRMTaskStatusUpdate/TVready !='' and /CRMTaskStatusUpdate/LightNet !=''">LightNet</xsl:if>
 										</attribute>
 										<!-- константа -->
 										<attribute name="UE">RUR</attribute>
@@ -479,6 +488,47 @@
 									</partyAttributes>
 								</orderParty>
 							</xsl:if>
+						</xsl:if>
+						<xsl:if test="/CRMTaskStatusUpdate/SiteAddressList">
+							<xsl:for-each select="SiteAddressList">
+								<xsl:for-each select="SiteAddress">
+									<orderParty>
+										<partyRole>SITE_ADDRESS</partyRole>
+										<partyId>
+											<xsl:value-of select="siteId"/>
+										</partyId>
+										<partyAttributes>
+											<attribute name="siteName" status="CE" isChanged="false">
+												<xsl:value-of select="siteName"/>
+											</attribute>
+											<attribute name="siteType" status="CE" isChanged="false">
+												<xsl:value-of select="siteType"/>
+											</attribute>
+											<attribute name="siteStatus" status="CE" isChanged="false">
+												<xsl:value-of select="siteStatus"/>
+											</attribute>
+											<attribute name="siteState" status="CE" isChanged="false">
+												<xsl:value-of select="siteState"/>
+											</attribute>
+											<xsl:if test="localtionId != '' ">
+												<attribute name="locationCategory" status="CE" isChanged="false">STRICT</attribute>
+												<attribute name="locationRegister" status="CE" isChanged="false">GID</attribute>
+												<attribute name="locationId" status="CE" isChanged="false">
+													<xsl:value-of select="localtionId"/>
+												</attribute>
+											</xsl:if>
+											<xsl:if test="localtionId = '' ">
+												<attribute name="Longitude" status="CE" isChanged="false">
+													<xsl:value-of select="Longitude"/>
+												</attribute>
+												<attribute name="Latitude" status="CE" isChanged="false">
+													<xsl:value-of select="Latitude"/>
+												</attribute>
+											</xsl:if>
+										</partyAttributes>
+									</orderParty>
+								</xsl:for-each>
+							</xsl:for-each>
 						</xsl:if>
 						<xsl:if test="Request_AttachmentList!=''">
 							<!--по OSSDEV-1414 передаача блока отключена для FSOM-->
