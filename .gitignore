@@ -29,3 +29,22 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_0._R12_.ErrorTransferService.ConfigExecute.prop
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_0._R12_.ErrorTransferService.EnvelopeInXSLT.xslt
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_0._R12_.ErrorTransferService.SQL
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_0._R12_.ErrorTransferService.WsdlInterface.wsdl
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_0._R12_.ErrorTransferService.WsdlXSD1.xsd
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_0._R12_.ErrorTransferService.WsdlXSD2.xsd
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_0._R12_.ErrorTransferService.WsdlXSD3.xsd
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_0._R12_.ErrorTransferService.WsdlXSD4.xsd
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1301._R12_.ErrorTransferReceiver.AckXSLT.xslt
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1301._R12_.ErrorTransferReceiver.ConfigExecute.prop
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1301._R12_.ErrorTransferReceiver.EnvelopeXSLTExt.xslt
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1301._R12_.ErrorTransferReceiver.SQL
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1302._R12_.TransferFaultRequest.ConfigExecute.prop
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1302._R12_.TransferFaultRequest.HeaderXSLT.xslt
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1302._R12_.TransferFaultRequest.MessageXSLT.xslt
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1302._R12_.TransferFaultRequest.MsgAnswXSLT.xslt
+/src/main/resources/Templates/13.Сервис информирования системы-источника запроса об ошибках при взаимодействии ФЕИП и CУС  Гермес  (Ранее Направление- TRANS)/13.BO_1302._R12_.TransferFaultRequest.SQL
+/src/main/resources/Templates/52.интерфейс симулятор  ТГрада, это нужно чтобы формально закрыть ПСИ по проектированию пбронированию/52.BO_515._-X-_.BookResourcesForInstallationRequest.MsgAnswXSLT.xslt
+/src/main/resources/Templates/52.интерфейс симулятор  ТГрада, это нужно чтобы формально закрыть ПСИ по проектированию пбронированию/52.BO_518._-X-_.CheckClientActiveServicesRequest.MsgAnswXSLT.xslt
