@@ -1,6 +1,6 @@
 url=/rt-gate/WFMWebServiceV2/WFMWebServiceV2Impl
-REMhost=http://SZ.ARGUS:80
-timeout_read=400
+host=http://VLG.ARGUS:80
+timeout_read=120
 timeout_conn=15
-
+debug=on
 SOAPAction=""

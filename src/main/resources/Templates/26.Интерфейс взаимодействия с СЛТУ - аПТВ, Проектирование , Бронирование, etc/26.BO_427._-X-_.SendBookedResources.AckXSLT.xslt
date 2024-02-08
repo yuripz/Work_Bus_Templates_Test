@@ -4,7 +4,7 @@
 		<xsl:for-each select="Confirmation">
 			<xsl:choose>
 				<xsl:when test="ResultCode!=60606">
-					<sendBookedResourcesResponse xmlns:proj="http://nri.rt.ru/NetworkDevelopment">
+					<proj:sendBookedResourcesResponse xmlns:proj="http://nri.rt.ru/NetworkDevelopment">
 						<xsl:for-each select="sendBookedResourcesResponse">
 							<originator>
 								<xsl:value-of select="originator"/>
@@ -21,7 +21,7 @@
 								</orderResultText>
 							</orderResult>
 						</xsl:for-each>
-					</sendBookedResourcesResponse>
+					</proj:sendBookedResourcesResponse>
 				</xsl:when>
 				<xsl:when test="ResultCode=60606">
 					<oms:Fault xmlns:oms="http://oms.rt.ru/">

@@ -1,0 +1,9 @@
+timeout_read=15
+timeout_conn=3
+shortRetryCount=0
+shortRetryInterval=0
+longRetryCount=0
+longRetryInterval=0
+debug=on
+url=/api/a/gs_api/nri_germes_equipment/Equipment
+host=http://ssidr004steda2.si.rt.ru

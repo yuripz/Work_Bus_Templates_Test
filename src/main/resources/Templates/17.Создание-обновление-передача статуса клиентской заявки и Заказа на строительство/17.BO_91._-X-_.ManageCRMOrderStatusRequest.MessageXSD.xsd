@@ -423,6 +423,11 @@
 					<xs:documentation>планируемая дата проработки заявки массовой проработки тендеров( HE-9579) </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="CRMCustomerElaborationTerm" type="nillableDate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Клиентский срок готовности проработки</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:all>
 	</xs:complexType>
 	<xs:complexType name="tCRMOrderCustomer">

@@ -246,7 +246,7 @@
 										<xsl:copy-of select="/Envelope/Body/Parametrs"/>
 									</sendCommentO2OAppointment>
 								</Body>
-							</xsl:when>							
+							</xsl:when>
 							<xsl:when test="$originator= 'onlineAddressElementGlobalIDData' ">
 								<Header>
 									<Context>
@@ -278,7 +278,7 @@
 										<xsl:copy-of select="/Envelope/Body/Parametrs"/>
 									</asyncPutDocument2DWH>
 								</Body>
-							</xsl:when>					
+							</xsl:when>
 							<xsl:when test="$originator= 'getWebNRICardViewURL' ">
 								<Header>
 									<Context>
@@ -310,8 +310,23 @@
 										<xsl:copy-of select="/Envelope/Body/Parametrs"/>
 									</onlineManualBookResources>
 								</Body>
-							</xsl:when>																
-																
+							</xsl:when>
+							<xsl:when test="$originator= 'onlineGetLineLimitation' ">
+								<Header>
+									<Context>
+										<EventInitiator>HTTP.HRMS</EventInitiator>
+										<EventKey>-1</EventKey>
+										<Source>HTTP.HRMS</Source>
+										<Destination>HRMS</Destination>
+										<BusOperationId>1518</BusOperationId>
+									</Context>
+								</Header>
+								<Body>
+									<onlineGetLineLimitation>
+										<xsl:copy-of select="/Envelope/Body/Parametrs"/>
+									</onlineGetLineLimitation>
+								</Body>
+							</xsl:when>							
 							<xsl:otherwise>
 								<Header>
 									<Context>

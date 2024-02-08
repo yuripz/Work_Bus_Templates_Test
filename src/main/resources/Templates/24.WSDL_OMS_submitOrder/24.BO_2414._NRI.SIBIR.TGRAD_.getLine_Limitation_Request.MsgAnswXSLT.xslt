@@ -2,29 +2,19 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:template match="/">
 		<xsl:choose>
-			<xsl:when test="manualBookResourcesResponse !=''">
-				<xsl:for-each select="manualBookResourcesResponse">
-					<Confirmation>
-						<ResultCode>
-							<xsl:value-of select="orderResult/orderResultCode"/>
-						</ResultCode>
-						<Message>
-							<xsl:value-of select="orderResult/orderResultText"/>
-						</Message>
-						<manualBookResourcesResponse>
-							<xsl:if test="orderResult/orderResultCode!=0">
-								<ResultCode>
-									<xsl:value-of select="orderResult/orderResultCode"/>
-								</ResultCode>
-								<Message>
-									<xsl:value-of select="orderResult/orderResultText"/>
-								</Message>
-							</xsl:if>
-							<xsl:copy-of select="payload"/>
-						</manualBookResourcesResponse>
-						<Next>RESOUT</Next>
-					</Confirmation>
-				</xsl:for-each>
+			<xsl:when test="getLineLimitationResponse !=''">
+				<Confirmation>
+					<ResultCode>
+						<xsl:value-of select="/getLineLimitationResponse/orderResult/orderResultCode"/>
+					</ResultCode>
+					<Message>
+						<xsl:value-of select="/getLineLimitationResponse/orderResult/orderResultText"/>
+					</Message>
+					<DetailList>
+						<xsl:copy-of select="/getLineLimitationResponse/payload"/>
+					</DetailList>
+					<Next>RESOUT</Next>
+				</Confirmation>
 			</xsl:when>
 			<xsl:when test="Fault!=''">
 				<xsl:for-each select="Fault">
