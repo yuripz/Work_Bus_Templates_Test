@@ -1,0 +1,12 @@
+encoding_out=UTF-8
+encoding_in=UTF-8
+WebMetod=get
+url=/LoadR12.phtml
+host=sus:80
+user=dbilling
+pswd=Sda73XzpVd
+debug=on
+shortRetryCount=0
+shortRetryInterval=0
+longRetryCount=0
+longRetryInterval=0

@@ -1,0 +1,14 @@
+encoding_out=UTF-8
+encoding_in=UTF-8
+WebMetod=get
+url=/LoadSLTU.phtml
+host=sus:80
+user=dbilling
+pswd=Sda73XzpVd
+debug=on
+shortRetryCount=10
+shortRetryInterval=6
+longRetryCount=40
+longRetryInterval=90
+timeout_read=660
+timeout_conn=3

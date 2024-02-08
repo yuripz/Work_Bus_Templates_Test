@@ -1,0 +1,14 @@
+encoding_out=UTF-8
+encoding_in=UTF-8
+WebMetod=get
+debug=on
+host=hermesapp:8080
+user=dbilling
+pswd=Sda73XzpVd
+url=/o2o/integration/process_attachments
+shortRetryCount=2
+shortRetryInterval=90
+longRetryCount=2
+longRetryInterval=300
+timeout_read=660
+timeout_conn=3
